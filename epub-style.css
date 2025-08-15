@@ -1,0 +1,51 @@
+/* epub-css-baseline https://github.com/ai-autocoder/epub-css-baseline */
+html, body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;         /* relative so slider can change it */
+    text-align: justify;      /* allow reader to override */
+    widows: 2;
+    orphans: 2;
+    font-size: 1em;           /* relative to device base (keeps slider functional) */
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+/* Paragraphs */
+p {
+    margin: 0 0 0.65em 0;     /* vertical rhythm */
+    text-indent: 1.2em;       /* first-line indent for paragraphs */
+    /* font-size: 1em;        /* optional / redundant: p inherits html font-size */
+    /* line-height: 1.4;      /* optional / redundant: inherited from html/body */
+}
+
+/* No indent for the first paragraph after a heading */
+h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
+    text-indent: 0;
+}
+
+/* Headings: spacing and avoid breaking after a heading */
+h1, h2, h3, h4, h5, h6 {
+    margin: 1.2em 0 0.4em 0;
+    font-weight: bold;
+    text-align: left;         /* keep headings left for clarity */
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+/* Blockquote and lists */
+blockquote {
+    margin: 0.8em 1.6em;
+    font-style: italic;
+}
+ul, ol {
+    margin: 0.6em 1.2em;
+    padding-left: 1.2em;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
