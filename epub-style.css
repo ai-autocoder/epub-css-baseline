@@ -16,7 +16,8 @@ html, body {
 p {
     margin: 0 0 0.65em 0;     /* vertical rhythm */
     text-indent: 1.2em;       /* first-line indent for paragraphs */
-    /* font-size: 1em;        /* optional / redundant: p inherits html font-size */
+    overflow-wrap: break-word; /* long-word fallback on small screens */
+	/* font-size: 1em;        /* optional / redundant: p inherits html font-size */
     /* line-height: 1.4;      /* optional / redundant: inherited from html/body */
 }
 
@@ -31,7 +32,9 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     text-align: left;         /* keep headings left for clarity */
     page-break-after: avoid;
+    page-break-inside: avoid;
     break-after: avoid;
+    break-inside: avoid;
 }
 
 /* Blockquote and lists */
@@ -39,13 +42,26 @@ blockquote {
     margin: 0.8em 1.6em;
     font-style: italic;
 }
+/* No paragraph indent inside blockquotes */
+blockquote p { text-indent: 0; }
 ul, ol {
     margin: 0.6em 1.2em;
     padding-left: 1.2em;
 }
+/* No indent after common block elements */
+blockquote + p,
+ul + p,
+ol + p,
+figure + p { text-indent: 0; }
 
 /* Images */
 img {
     max-width: 100%;
     height: auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
 }
+
+/* Pre/code readability */
+pre { white-space: pre-wrap; }
+code, pre { font-family: monospace; }
